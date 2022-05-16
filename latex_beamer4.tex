@@ -1,0 +1,98 @@
+\documentclass{beamer}
+\usepackage{xspace}
+
+ \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}
+\usetheme{CambridgeUS}
+
+\title{Assignment 4}
+\author{Saanvi Amrutha-AI21BTECH11026}
+\date{\today}
+\logo{\large \LaTeX{}}
+
+\usepackage{amsmath}
+\setbeamertemplate{caption}[numbered]{}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+\logo{}
+
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{Question}
+\begin{frame}{Question}
+    \begin{block}{Exercise 13.3.11}
+        A manufacturer has three machine operators A,B and C. The first operator A produces $1\%$ defective items,where as the other two operators B and C produce $5\%$ and $7\%$ defective items respectively. A is on the job for $50\%$ of the time, B is on the job for $30\%$ of the time and C is on the job for $20\%$ of the time. A defective item is produced, what is the probability that it was produced by A?
+    \end{block}
+\end{frame}
+
+\section{Defining random variables}
+\begin{frame}
+\frametitle{Solution}
+Let $X\in\cbrak{0,1,2},Y\in\cbrak{0,1}$ be random variables.\\
+\begin{table}[h]
+\begin{center}
+    \input{Tables/Table4.tex}
+	\vspace{5pt}
+\caption{}
+\label{table:table1}
+\end{center}
+\end{table}
+\end{frame}
+
+\section{Values of probabilities}
+\begin{frame}
+\frametitle{}
+Given that,
+\begin{align}
+\pr{X=0}&=\frac{50}{100}\label{eq:eq1}\\
+\pr{X=1}&=\frac{30}{100}\\
+\pr{X=2}&=\frac{20}{100}\\
+\pr{Y=1|X=0}&=\frac{1}{100}\label{eq:eq2}\\
+\pr{Y=1|X=1}&=\frac{5}{100}\\
+\pr{Y=1|X=2}&=\frac{7}{100}
+\end{align}
+\end{frame}
+
+
+\section{Solving}
+\begin{frame}{}
+    Then,
+\begin{align}
+\pr{Y=1}&=\sum_{i=0}^{2}\pr{X=i}\pr{Y=1|X=i}\\
+&=\frac{50}{100}\times\frac{1}{100}+\frac{30}{100}\times\frac{5}{100}+\frac{20}{100}\times\frac{7}{100}\\
+&=\frac{340}{10000}\label{eq:eq3}
+\end{align}
+\end{frame}
+\section{Solving}
+\begin{frame}{}
+The probability that the defective item was produced by A is given by $\pr{X=0|Y=1}$.\\
+Now we can write,
+\begin{align}
+\pr{X=0|Y=1}&=\frac{\pr{\brak{X=0}\cap\brak{Y=1}}}{\pr{Y=1}}\\
+&=\frac{\pr{X=0}\pr{Y=1|X=0}}{\pr{Y=1}}
+\end{align}
+From ~\eqref{eq:eq1},\eqref{eq:eq2} and \eqref{eq:eq3} 
+\begin{align}
+\pr{X=0|Y=1}&=\frac{\frac{50}{100}\times\frac{1}{100}}{\frac{340}{10000}}\\
+&=\frac{50}{340}\\
+&=\frac{5}{34}
+\end{align}
+
+\begin{block}{}
+$\therefore$ The probability that the defective item was produced by A is $\frac{5}{34}$.
+\end{block}
+
+\end{frame}
+
+\end{document}
